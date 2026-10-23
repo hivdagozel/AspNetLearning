@@ -1,0 +1,39 @@
+@AspNetLearning.Api_HostAddress = http://localhost:5135
+
+### Tüm ürünleri getir
+
+GET {{AspNetLearning.Api_HostAddress}}/api/products
+Accept: application/json
+
+
+### Yeni ürün ekle
+
+POST {{AspNetLearning.Api_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Mekanik Klavye",
+  "price": 1250.50,
+  "stock": 10
+}
+### 2 numaralı ürünü getir
+
+GET {{AspNetLearning.Api_HostAddress}}/api/products/2
+Accept: application/json
+
+
+### 2 numaralı ürünü güncelle
+
+PUT {{AspNetLearning.Api_HostAddress}}/api/products/2
+Content-Type: application/json
+
+{
+  "name": "RGB Mekanik Klavye",
+  "price": 1750.75,
+  "stock": 7
+}
+
+
+### 1 numaralı ürünü sil
+
+DELETE {{AspNetLearning.Api_HostAddress}}/api/products/1

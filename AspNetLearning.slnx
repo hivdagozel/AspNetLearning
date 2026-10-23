@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AspNetLearning.Api/AspNetLearning.Api.csproj" />
+  <Project Path="AspNetLearning.Tests/AspNetLearning.Tests.csproj" Id="262e0ae1-009f-4bbd-8acf-dde621de7921" />
+</Solution>
