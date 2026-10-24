@@ -3,10 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AspNetLearning.Api.Data
 {
-    //DbContext :Uygulama ile veritabanı arasındaki bağlantıyı yönetir.
     public class AppDbContext : DbContext
     {
-        //DbContextOptions: Hangi veritabanına ve hangi bağlantı ayarlarıyla bağlanacağımızı taşır.
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) 
     

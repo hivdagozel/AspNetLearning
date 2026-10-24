@@ -5,14 +5,11 @@
         [Fact]
         public void IkiSayiToplandiginda_SonucBesOlmali()
         {
-            // Arrange
             int birinciSayi = 2;
             int ikinciSayi = 3;
 
-            // Act
             int gercekSonuc = birinciSayi + ikinciSayi;
 
-            // Assert
             Assert.Equal(5, gercekSonuc);
         }
 
@@ -26,10 +23,8 @@
             int ikinciSayi,
             int beklenenSonuc)
         {
-            // Act
             int gercekSonuc = birinciSayi + ikinciSayi;
 
-            // Assert
             Assert.Equal(beklenenSonuc, gercekSonuc);
         }
     }

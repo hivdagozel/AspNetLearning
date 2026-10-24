@@ -14,7 +14,6 @@ namespace AspNetLearning.Tests
         [Fact]
         public async Task GetById_ProductExists_ReturnsMappedProductDto()
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
             Mock<IMapper> mapperMock = new();
 
@@ -50,11 +49,9 @@ namespace AspNetLearning.Tests
                     productService,
                     mapperMock.Object);
 
-            // Act
             ActionResult<ProductDto> response =
                 await controller.GetById(1);
 
-            // Assert
             OkObjectResult okResult =
                 Assert.IsType<OkObjectResult>(response.Result);
 

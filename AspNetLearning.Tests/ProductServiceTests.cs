@@ -17,7 +17,6 @@ namespace AspNetLearning.Tests
         [Fact]
         public void IsValid_ValidProduct_ReturnsTrue()
         {
-            // Arrange
             ProductService service = CreateService();
 
             Product product = new()
@@ -27,23 +26,18 @@ namespace AspNetLearning.Tests
                 Stock = 5
             };
 
-            // Act
             bool result = service.IsValid(product);
 
-            // Assert
             Assert.True(result);
         }
 
         [Fact]
         public void IsValid_NullProduct_ReturnsFalse()
         {
-            // Arrange
             ProductService service = CreateService();
 
-            // Act
             bool result = service.IsValid(null);
 
-            // Assert
             Assert.False(result);
         }
 
@@ -58,7 +52,6 @@ namespace AspNetLearning.Tests
             double price,
             int stock)
         {
-            // Arrange
             ProductService service = CreateService();
 
             Product product = new()
@@ -68,17 +61,14 @@ namespace AspNetLearning.Tests
                 Stock = stock
             };
 
-            // Act
             bool result = service.IsValid(product);
 
-            // Assert
             Assert.False(result);
         }
 
         [Fact]
         public async Task GetByIdAsync_ProductExists_ReturnsProduct()
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
 
             Product expectedProduct = new()
@@ -96,10 +86,8 @@ namespace AspNetLearning.Tests
             ProductService service =
                 new ProductService(repositoryMock.Object);
 
-            // Act
             Product? result = await service.GetByIdAsync(1);
 
-            // Assert
             Assert.NotNull(result);
             Assert.Equal(1, result.Id);
             Assert.Equal("Klavye", result.Name);
@@ -114,7 +102,6 @@ namespace AspNetLearning.Tests
         [Fact]
         public async Task AddAsync_ValidProduct_AddsAndReturnsProduct()
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
 
             Product product = new()
@@ -131,10 +118,8 @@ namespace AspNetLearning.Tests
             ProductService service =
                 new ProductService(repositoryMock.Object);
 
-            // Act
             Product? result = await service.AddAsync(product);
 
-            // Assert
             Assert.NotNull(result);
             Assert.Equal("Mouse", result.Name);
             Assert.Equal(500m, result.Price);
@@ -148,7 +133,6 @@ namespace AspNetLearning.Tests
         [Fact]
         public async Task AddAsync_InvalidProduct_DoesNotCallRepository()
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
 
             Product invalidProduct = new()
@@ -161,10 +145,8 @@ namespace AspNetLearning.Tests
             ProductService service =
                 new ProductService(repositoryMock.Object);
 
-            // Act
             Product? result = await service.AddAsync(invalidProduct);
 
-            // Assert
             Assert.Null(result);
 
             repositoryMock.Verify(
@@ -175,7 +157,6 @@ namespace AspNetLearning.Tests
     [Fact]
         public async Task UpdateAsync_ValidProduct_ReturnsTrue()
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
 
             Product product = new()
@@ -193,10 +174,8 @@ namespace AspNetLearning.Tests
             ProductService service =
                 new ProductService(repositoryMock.Object);
 
-            // Act
             bool result = await service.UpdateAsync(product);
 
-            // Assert
             Assert.True(result);
 
             repositoryMock.Verify(
@@ -207,7 +186,6 @@ namespace AspNetLearning.Tests
         [Fact]
         public async Task UpdateAsync_InvalidProduct_DoesNotCallRepository()
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
 
             Product invalidProduct = new()
@@ -221,10 +199,8 @@ namespace AspNetLearning.Tests
             ProductService service =
                 new ProductService(repositoryMock.Object);
 
-            // Act
             bool result = await service.UpdateAsync(invalidProduct);
 
-            // Assert
             Assert.False(result);
 
             repositoryMock.Verify(
@@ -235,7 +211,6 @@ namespace AspNetLearning.Tests
         [Fact]
         public async Task DeleteAsync_ValidId_ReturnsTrue()
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
 
             repositoryMock
@@ -245,10 +220,8 @@ namespace AspNetLearning.Tests
             ProductService service =
                 new ProductService(repositoryMock.Object);
 
-            // Act
             bool result = await service.DeleteAsync(1);
 
-            // Assert
             Assert.True(result);
 
             repositoryMock.Verify(
@@ -262,16 +235,13 @@ namespace AspNetLearning.Tests
         [InlineData(-100)]
         public async Task DeleteAsync_InvalidId_DoesNotCallRepository(int id)
         {
-            // Arrange
             Mock<IProductRepository> repositoryMock = new();
 
             ProductService service =
                 new ProductService(repositoryMock.Object);
 
-            // Act
             bool result = await service.DeleteAsync(id);
 
-            // Assert
             Assert.False(result);
 
             repositoryMock.Verify(
