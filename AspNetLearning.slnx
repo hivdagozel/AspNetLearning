@@ -1,4 +1,10 @@
 <Solution>
+  <Folder Name="/Çözüm Öğeleri/">
+    <File Path="docker-compose.yml" />
+  </Folder>
   <Project Path="AspNetLearning.Api/AspNetLearning.Api.csproj" />
   <Project Path="AspNetLearning.Tests/AspNetLearning.Tests.csproj" Id="262e0ae1-009f-4bbd-8acf-dde621de7921" />
+  <Project Path="LohConsumer/LogConsumer.csproj" Id="3d642b2f-ec1f-4f9d-a3ad-e8e8f7b62302" />
+  <Project Path="ServiceA/ServiceA.csproj" Id="62b56217-072d-4914-8b86-4a3e6a22d83e" />
+  <Project Path="ServiceB/ServiceB.csproj" Id="759ab848-9c08-4d9c-a4cf-71c44ad15934" />
 </Solution>
